@@ -1,0 +1,197 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'prism.css';
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222.2 47.4% 11.2%;
+
+        --muted: 210 40% 96.1%;
+        --muted-foreground: 215.4 16.3% 46.9%;
+
+        --popover: 0 0% 100%;
+        --popover-foreground: 222.2 47.4% 11.2%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+
+        --border: 214.3 31.8% 91.4%;
+        --input: 214.3 31.8% 91.4%;
+
+        --primary: 222.2 47.4% 11.2%;
+        --primary-foreground: 210 40% 98%;
+
+        --secondary: 210 40% 96.1%;
+        --secondary-foreground: 222.2 47.4% 11.2%;
+
+        --accent: 210 40% 96.1%;
+        --accent-foreground: 222.2 47.4% 11.2%;
+
+        --destructive: 0 100% 50%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 215 20.2% 65.1%;
+
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 224 71% 4%;
+        --foreground: 213 31% 91%;
+
+        --muted: 223 47% 11%;
+        --muted-foreground: 215.4 16.3% 56.9%;
+
+        --popover: 224 71% 4%;
+        --popover-foreground: 215 20.2% 65.1%;
+
+        --card: 0 0% 100%;
+        --card-foreground: 222.2 47.4% 11.2%;
+
+        --border: 216 34% 17%;
+        --input: 216 34% 17%;
+
+        --primary: 210 40% 98%;
+        --primary-foreground: 222.2 47.4% 1.2%;
+
+        --secondary: 222.2 47.4% 11.2%;
+        --secondary-foreground: 210 40% 98%;
+
+        --accent: 216 34% 17%;
+        --accent-foreground: 210 40% 98%;
+
+        --destructive: 0 63% 31%;
+        --destructive-foreground: 210 40% 98%;
+
+        --ring: 216 34% 17%;
+
+        --radius: 0.5rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background dark:bg-background text-foreground dark:text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --scroll-margin-top: 120px;
+}
+
+html,
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    scroll-margin-top: var(--scroll-margin-top) !important;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    html {
+        color-scheme: dark;
+    }
+}
+
+.border-color {
+    @apply border-neutral-200 dark:border-neutral-800
+}
+
+.gradient-heading {
+    @apply bg-gradient-to-bl from-black dark:from-white to-gray-900 dark:to-neutral-100/50 bg-clip-text font-bold text-transparent;
+}
+
+.shadow-box {
+    box-shadow: 0 0 50px -12px rgba(232, 121, 249, 0.3);
+}
+
+.button-glow {
+    box-shadow: -8px 0px 20px rgba(232, 121, 249, 0.3),
+        0px 0px 20px rgba(34, 211, 238, 0.3), 8px 0px 20px rgba(244, 63, 94, 0.3);
+}
+
+.button-glow-color {
+    box-shadow: -4px 0px 20px rgba(217, 70, 239, 0.2),
+        0px 0px 6px rgba(217, 70, 239, 0.3), 8px 0px 20px rgba(217, 70, 239, 0.2) !important;
+}
+
+.input-glow-color {
+    box-shadow: -4px 0px 20px rgba(217, 70, 239, 0.2),
+        0px 0px 6px rgba(217, 70, 239, 0.3), 8px 0px 20px rgba(217, 70, 239, 0.2) !important;
+    @apply border border-fuchsia-600 !important;
+}
+
+/* ! SUPABASE */
+
+.supabase-auth-ui_ui-button {
+    @apply font-sans rounded-md border-0 px-4 py-2 text-sm font-medium !important;
+}
+
+button[type='submit'].supabase-auth-ui_ui-button {
+    @apply bg-neutral-800 dark:bg-white dark:text-neutral-900 hover:bg-neutral-500 dark:hover:bg-neutral-300 !important;
+}
+
+button:not([type='submit']).supabase-auth-ui_ui-button {
+    @apply bg-transparent border-[1.5px] dark:border-0 border-gray-200 text-neutral-800 hover:bg-neutral-300 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700 !important;
+}
+
+.supabase-auth-ui_ui-input {
+    @apply flex appearance-none rounded-md border border-neutral-200 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-900 px-2 py-1.5 text-neutral-900 dark:text-neutral-100 dark:placeholder:text-neutral-500 focus:border-transparent focus:outline-none focus:ring-1 dark:focus:ring-neutral-700 focus:ring-neutral-300 !important;
+}
+
+.supabase-auth-ui_ui-label {
+    @apply mb-1.5 text-sm dark:text-neutral-300 text-neutral-700 !important;
+}
+
+.supabase-auth-ui_ui-divider {
+    @apply bg-neutral-200 dark:bg-neutral-800 !important;
+}
+
+.supabase-auth-ui_ui-anchor {
+    @apply text-sm text-neutral-500 no-underline hover:text-neutral-300 !important;
+}
+
+.supabase-auth-ui_ui-message[color='danger'] {
+    @apply text-sm text-rose-600;
+}
+
+.hidden-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hidden-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.prose a:not(.not-prose) {
+    @apply border-b border-dotted border-neutral-700 font-medium no-underline;
+}
